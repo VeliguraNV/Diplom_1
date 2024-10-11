@@ -120,4 +120,14 @@ public class BurgerTest {
     private String normalizeLineSeparators(String input) {
         return input.replaceAll("\\r\\n", "\n").replaceAll("\\r", "\n");
     }
+    @Test
+    public void testMoveIngredient() {
+        burger.addIngredient(mockSauce);
+        burger.addIngredient(mockFilling);
+
+        burger.moveIngredient(1, 0);
+
+        assertEquals(mockFilling, burger.ingredients.get(0));
+        assertEquals(mockSauce, burger.ingredients.get(1));
+    }
 }
